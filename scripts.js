@@ -13,6 +13,8 @@ function init() {
     const upButton = document.getElementById("up")
     const downbutton = document.getElementById("down")
     const rocketImg = document.getElementById("rocket")
+    
+    //this is how i put my rocket on the bottom of the screen. They are almost like coordinates on a map 
     rocketImg.style.left = '5px'
     rocketImg.style.right = '35px'
     rocketImg.style.bottom= '35px'
@@ -27,6 +29,7 @@ function init() {
           flightStatusP.innerHTML = "Shuttle in flight"
           shuttleFlightScreen.style.backgroundColor = "blue"
           shuttleHeightP.innerHTML = "10000 "
+          //this is how i moved my rocket up 10px after i push the takeoff button 
           rocketImg.style.top = (parseInt(rocketImg.style.top) - 10)+ 'px';
         }
       });
@@ -36,6 +39,7 @@ function init() {
           flightStatusP.innerHTML = "Shuttle has landed"
           shuttleFlightScreen.style.backgroundColor = "green"
           shuttleHeightP.innerHTML = "0 "
+          //i put this here so after i moved the rocket away from its base position it would return to its base position at the bottom of the screen 
           rocketImg.style.left = '5px'
            rocketImg.style.right = '35px'
            rocketImg.style.bottom= '35px'
@@ -48,6 +52,8 @@ function init() {
           flightStatusP.innerHTML = "Mission aborted"
           shuttleFlightScreen.style.backgroundColor = "green"
           shuttleHeightP.innerHTML = "0 "
+
+         //i put this here so after i moved the rocket away from its base position it would return to its base position at the bottom of the screen 
           rocketImg.style.left = '5px'
           rocketImg.style.right = '35px'
            rocketImg.style.bottom= '35px'
@@ -57,20 +63,24 @@ function init() {
 
       upButton.addEventListener('click', function(event) {
         shuttleHeightP.innerHTML = parseInt(shuttleHeightP.innerHTML) + 10000; 
+        //this is how i moved my rocket up the screen 
         rocketImg.style.top = (parseInt(rocketImg.style.top) - 10)+ 'px';
       });
 
       downbutton.addEventListener('click', function(event) {
         shuttleHeightP.innerHTML = parseInt(shuttleHeightP.innerHTML) - 10000; 
+        //this is how i moved my rocket down the screen 
         rocketImg.style.top = (parseInt(rocketImg.style.top) + 10)+ 'px';
     
       });
       leftButton.addEventListener('click', function(event) {
+        //this is how i moved my rocket to the left 
         rocketImg.style.left = (parseInt(rocketImg.style.left) - 10)+ 'px';
     });
 
 
     rightButton.addEventListener('click', function(event) {
+        //this is how i moved my rocket to the right 
         rocketImg.style.left = (parseInt(rocketImg.style.left) + 10)+ 'px';
     });
 }
