@@ -13,7 +13,13 @@ function init() {
     const upButton = document.getElementById("up")
     const downbutton = document.getElementById("down")
     const rocketImg = document.getElementById("rocket")
-    rocketImg.style.left = '35px'
+    rocketImg.style.left = '5px'
+    rocketImg.style.right = '35px'
+    rocketImg.style.bottom= '35px'
+    rocketImg.style.top = '250px'
+
+    
+    
     
    
     takeoffbutton.addEventListener("click", function(event) {
@@ -21,6 +27,7 @@ function init() {
           flightStatusP.innerHTML = "Shuttle in flight"
           shuttleFlightScreen.style.backgroundColor = "blue"
           shuttleHeightP.innerHTML = "10000 "
+          rocketImg.style.top = (parseInt(rocketImg.style.top) - 10)+ 'px';
         }
       });
 
@@ -29,6 +36,10 @@ function init() {
           flightStatusP.innerHTML = "Shuttle has landed"
           shuttleFlightScreen.style.backgroundColor = "green"
           shuttleHeightP.innerHTML = "0 "
+          rocketImg.style.left = '5px'
+           rocketImg.style.right = '35px'
+           rocketImg.style.bottom= '35px'
+           rocketImg.style.top = '250px'
         }
       });
 
@@ -37,18 +48,31 @@ function init() {
           flightStatusP.innerHTML = "Mission aborted"
           shuttleFlightScreen.style.backgroundColor = "green"
           shuttleHeightP.innerHTML = "0 "
+          rocketImg.style.left = '5px'
+          rocketImg.style.right = '35px'
+           rocketImg.style.bottom= '35px'
+           rocketImg.style.top = '250px'
         }
       });
 
       upButton.addEventListener('click', function(event) {
         shuttleHeightP.innerHTML = parseInt(shuttleHeightP.innerHTML) + 10000; 
+        rocketImg.style.top = (parseInt(rocketImg.style.top) - 10)+ 'px';
       });
 
       downbutton.addEventListener('click', function(event) {
         shuttleHeightP.innerHTML = parseInt(shuttleHeightP.innerHTML) - 10000; 
-        rocketImg.style.left = (parseInt(rocketImg.style.left) + 10)+ 'px';
+        rocketImg.style.top = (parseInt(rocketImg.style.top) + 10)+ 'px';
     
       });
+      leftButton.addEventListener('click', function(event) {
+        rocketImg.style.left = (parseInt(rocketImg.style.left) - 10)+ 'px';
+    });
+
+
+    rightButton.addEventListener('click', function(event) {
+        rocketImg.style.left = (parseInt(rocketImg.style.left) + 10)+ 'px';
+    });
 }
 
 window.addEventListener("load", init);
